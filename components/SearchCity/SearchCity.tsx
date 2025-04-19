@@ -49,7 +49,7 @@ export function SearchCity() {
         })
         .catch(err => {
           setLoading(false);
-          setError(err);
+          setError('Ошибка при загрузке городов')
         })
     }
   }, [debouncedQuery]);

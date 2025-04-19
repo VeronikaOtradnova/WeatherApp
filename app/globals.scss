@@ -13,3 +13,10 @@ body {
 .list-group-item {
   min-height: 45px;
 }
+
+.card {
+  min-height: 150px;
+  &-blue {
+    background-color: var(--custom-blue);
+  }
+}
