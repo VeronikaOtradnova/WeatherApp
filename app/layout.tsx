@@ -10,7 +10,7 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <Navbar />
-        <main className="container">
+        <main className="container d-flex flex-column justify-content-start align-items-stretch gap-4">
           {children}
         </main>
       </body>

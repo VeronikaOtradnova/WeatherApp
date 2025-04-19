@@ -22,7 +22,7 @@ export function SearchCity() {
 
     const timer = setTimeout(() => {
       setDebouncedQuery(query);
-    }, 1500);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [query]);

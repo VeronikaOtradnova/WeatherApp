@@ -1,7 +1,8 @@
+import { ForecastWeather } from "@/components/ForecastWeather/ForecastWeather";
+
 export default function Forecast() {
   return (
-    <>
-      <h1>Прогноз</h1>
-    </>
+    <ForecastWeather />
+    // <h1>hi</h1>
   );
 }

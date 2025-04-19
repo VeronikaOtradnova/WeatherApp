@@ -1,0 +1,16 @@
+.scroll {
+  scrollbar-width: thin; /* для Firefox */
+  scrollbar-color: #aaa transparent; /* для Firefox */
+
+  /* Для Chrome, Edge и Safari */
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+}
