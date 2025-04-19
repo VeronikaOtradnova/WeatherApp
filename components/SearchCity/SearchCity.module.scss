@@ -1,0 +1,27 @@
+.customInput {
+  border-color: var(--custom-blue);
+
+  &:focus {
+    background-color: rgba(207, 209, 209, 0.1);
+    border-color: var(--custom-blue);
+    outline: none;
+    box-shadow: none;
+  }
+
+  &.openDropdown {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.list {
+  border-color: var(--custom-blue);
+
+  li {
+    border-color: var(--custom-blue);
+  }
+}
+
+.spinner {
+  color: var(--custom-blue);
+}

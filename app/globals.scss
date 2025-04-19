@@ -1,7 +1,15 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+:root {
+  --custom-blue: rgb(87 126 184);
+}
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background-color: #f5f5f5;
+}
+
+.list-group-item {
+  min-height: 45px;
 }
