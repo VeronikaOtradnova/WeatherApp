@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styles from './SearchCity.module.scss'
 import { ICity } from "@/types/city";
 import { useCurrentCityStore } from "@/stores/cityStore";
+import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 
 export function SearchCity() {
   const setCurrentCity = useCurrentCityStore(store => store.setCurrentCity);
@@ -95,10 +96,11 @@ export function SearchCity() {
           {searchResults.length > 0 && !error && !loading && (searchResults.map((city) => (
             <li
               key={city.id}
-              className="list-group-item list-group-item-action d-flex align-items-center"
+              className="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
               onClick={() => cityItemHandler(city)}
             >
-              {city.name}, {city.country}
+              <div>{city.name}, {city.country}</div>
+              <FavoriteButton city={city} />
             </li>
           )))}
         </ul>

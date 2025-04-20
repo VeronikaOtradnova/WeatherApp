@@ -7,6 +7,7 @@ import axios from 'axios';
 import { StatusCard } from '../StatusCard/StatusCard';
 import { IWeatherItem } from '@/types/forecast';
 import { ForecastWeatherCard } from './ForecastWeatherCard/ForecastWeatherCard';
+import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
 
 export function ForecastWeather() {
   const currentCity = useCurrentCityStore(store => store.currentCity);
@@ -70,8 +71,14 @@ export function ForecastWeather() {
     <>
       <h3>
         Погода на несколько дней
-        {currentCity && ','}
-        <small className="text-body-secondary"> {currentCity?.name}</small>
+        {
+          currentCity &&
+          <>
+            ,
+            <small className="text-body-secondary me-2"> {currentCity.name}</small>
+            <FavoriteButton city={currentCity} />
+          </>
+        }
       </h3>
 
       <StatusCard

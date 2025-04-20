@@ -1,0 +1,11 @@
+.icon {
+  font-size: 1rem;
+
+  &.fav {
+    color: #FFD700;
+  }
+
+  &.notFav {
+    color: #6c757d;
+  }
+}
