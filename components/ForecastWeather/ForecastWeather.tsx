@@ -62,9 +62,30 @@ export function ForecastWeather() {
 
   function formatDate(dateStr: string) {
     const date = new Date(dateStr);
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+  
+    const isSameDay = (d1: Date, d2: Date) =>
+      d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
+  
+    if (isSameDay(date, today)) {
+      return 'Сегодня';
+    }
+  
+    if (isSameDay(date, tomorrow)) {
+      return 'Завтра';
+    }
+  
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
-    return `${day}.${month}`;
+  
+    const weekdays = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+    const weekday = weekdays[date.getDay()];
+  
+    return `${day}.${month} (${weekday})`;
   }
 
   return (

@@ -10,6 +10,5 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export default function Forecast() {
   return (
     <ForecastWeather />
-    // <h1>hi</h1>
   );
 }
