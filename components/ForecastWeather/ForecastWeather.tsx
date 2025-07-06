@@ -9,6 +9,14 @@ import { IWeatherItem } from '@/types/forecast';
 import { ForecastWeatherCard } from './ForecastWeatherCard/ForecastWeatherCard';
 import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
 
+type RawWeatherItem = {
+  dt: number;
+  dt_txt: string;
+  main: { temp: number };
+  weather: { description: string; icon: string }[];
+  wind: { speed: number };
+};
+
 export function ForecastWeather() {
   const currentCity = useCurrentCityStore(store => store.currentCity);
   const [loading, setLoading] = useState(false);
@@ -32,7 +40,7 @@ export function ForecastWeather() {
       }
     })
       .then(resp => {
-        const list = resp.data.list.map((item: any): IWeatherItem => ({
+        const list = resp.data.list.map((item: RawWeatherItem): IWeatherItem => ({
           id: item.dt,
           date: item.dt_txt.split(' ')[0],
           time: item.dt_txt.split(' ')[1],

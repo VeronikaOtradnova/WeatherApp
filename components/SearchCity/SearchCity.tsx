@@ -7,6 +7,15 @@ import { ICity } from "@/types/city";
 import { useCurrentCityStore } from "@/stores/cityStore";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 
+type RawCity = {
+  lat: number;
+  lon: number;
+  country: string;
+  local_names: {
+    ru: string;
+  };
+};
+
 export function SearchCity() {
   const setCurrentCity = useCurrentCityStore(store => store.setCurrentCity);
 
@@ -37,8 +46,8 @@ export function SearchCity() {
       axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${debouncedQuery}&limit=10&appid=${apiKey}`)
         .then(resp => {
           const result = resp.data
-            .filter((city: any) => city.local_names?.ru)
-            .map((city: any): ICity => ({
+            .filter((city: RawCity) => city.local_names?.ru)
+            .map((city: RawCity): ICity => ({
               id: `${city.lat.toFixed(5)}_${city.lon.toFixed(5)}`,
               lat: city.lat,
               lon: city.lon,
@@ -48,7 +57,7 @@ export function SearchCity() {
           setLoading(false);
           setSearchResults(result);
         })
-        .catch(err => {
+        .catch(() => {
           setLoading(false);
           setError('Ошибка при загрузке городов')
         })
