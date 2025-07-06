@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌤️ Weather App
 
-## Getting Started
+[Live demo on Vercel →](https://weather-app-six-delta-62.vercel.app/)
 
-First, run the development server:
+Приложение для просмотра текущей погоды и прогноза на несколько дней вперёд, с возможностью поиска городов и добавления их в избранное.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Стек технологий
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** + **TypeScript**
+- **SCSS Modules** + **Bootstrap**
+- **Zustand** для глобального состояния
+- **Axios** для работы с API
+- **ESLint** и **Stylelint** для проверки качества кода
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Функциональность
 
-To learn more about Next.js, take a look at the following resources:
+- 🔍 Поиск городов по названию
+- 📊 Просмотр прогноза погоды на 5 дней
+- ⭐ Добавление городов в избранное (сохранение между сессиями)
+- 🔄 Индикация загрузки и обработка ошибок
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗂️ Страницы
 
-## Deploy on Vercel
+- `/` — поиск и текущая погода
+- `/forecast` — подробный прогноз
+- `/favorites` — список избранных городов
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔐 Работа с API-ключом
+
+Приложение использует OpenWeatherMap API.  
+API-ключ хранится в переменной окружения и **не включён в публичный репозиторий** по соображениям безопасности.
+
+### 🛠 Как запустить локально:
+
+1. Клонируйте репозиторий
+2. Установите зависимости: 
+  npm install
+3. Создайте файл `.env.local` в корне проекта и добавьте:
+  NEXT_PUBLIC_OPENWEATHER_API_KEY=your_key_here
+4. Запустите dev-сервер:
+  npm run dev

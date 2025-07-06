@@ -43,7 +43,7 @@ export function SearchCity() {
       setLoading(true);
 
       const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
-      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${debouncedQuery}&limit=10&appid=${apiKey}`)
+      axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${debouncedQuery}&limit=10&appid=${apiKey}`)
         .then(resp => {
           const result = resp.data
             .filter((city: RawCity) => city.local_names?.ru)
